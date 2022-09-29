@@ -1,0 +1,36 @@
+.div-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.nav-navbor__ul {
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+}
+.nav-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-navbor__ul-a {
+    margin: 35px  20px;
+    display: block;
+    color: black;
+}
+.login-link, .register-link {
+    padding: 10px;
+    border-radius: 18px;
+    border: 1px solid blue;
+    margin: 0 5px;
+    transition: all 0.8s;
+}
+.login-link:hover, .register-link:hover {
+    padding: 10px;
+    border-radius: 18px;
+    border: 1px solid blue;
+    margin: 0 5px;
+    color: white;
+    background-color: blue;
+}

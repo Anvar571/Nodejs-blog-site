@@ -1,8 +1,22 @@
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title=title
-    body 
+extends layout 
+block style
+    link(rel="stylesheet", href="/stylesheets/register.css")
+
+block content
+    div(class="container")
+        div(class="register-page")
+            div(class="register-page_divs") 
+                form(action="/register", method="POST")
+                    div 
+                        label(for="username") UserName
+                        input(class="input-register" type="text" id="username" name="username")
+                    div 
+                        label(for="email") Email
+                        input(class="input-register" type="email" id="email" name="email")
+                    div 
+                        label(for="password") Password
+                        input(class="input-register" type="password" id='password' name="password")
+                    button(class="btn-send" type="submit" ) Send
+            div(class="register-page_divs")
+                h2(class="register-right") Register
+                img(class="reg-images" src="/images/reg.jpg" alt="image reg" width="400")

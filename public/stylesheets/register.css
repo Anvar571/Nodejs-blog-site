@@ -1,0 +1,53 @@
+.register-page {
+    display: flex;
+    justify-content: space-between;
+    width: 950px;
+    height: 400px;
+    margin: 100px 50px;
+    padding: 50px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 1px 1px 15px 0.5px rgba(0,0,0,0.1);
+}
+.register-page_divs {
+    background-color: #fff;
+}
+.register-right {
+    text-align: center;
+}
+.input-register {
+    display: block;
+    width: 400px;
+    border: 1px solid rgba(0,0,0,0.3);
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.input-register:focus {
+    border: 1px solid rgba(0,0,0,0.3);
+}
+.btn-send {
+    width: 100px;
+    padding: 13px;
+    border-radius: 5px;
+    float: right;
+    border: 1px solid rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.5s;
+    color: #fff;
+    background-color: blue;
+}
+.btn-send:hover {
+    width: 100px;
+    padding: 13px;
+    border-radius: 5px;
+    float: right;
+    border: 1px solid rgba(0,0,0,0.1);
+    cursor: pointer;
+    color: #000;
+    background-color: #fff;
+}
+.reg-images {
+    border-radius: 5px;
+}

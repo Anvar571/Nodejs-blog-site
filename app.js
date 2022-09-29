@@ -4,8 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/HomeRoute');
-const usersRouter = require('./routes/RegisterRoute');
+const homeRouter = require('./routes/HomeRoute');
+const registerRouter = require('./routes/RegisterRoute');
+const loginRouter = require("./routes/LoginRoute")
 
 const app = express();
 // mongoDB connection
@@ -14,7 +15,6 @@ const db = require("./models/mongodb")();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-require("dotenv").config()
 
 // middleWare
 app.use(logger('dev'));
@@ -23,8 +23,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', homeRouter);
+app.use('/register', registerRouter);
+app.use("/login", loginRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

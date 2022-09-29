@@ -1,10 +1,11 @@
 const express = require('express');
+const { RegisterController } = require('../controllers/RegisterController');
 const router = express.Router();
 
 // import router
-const RegisterRoute = require("../controllers/RegisterController")
+
 
 /* POST users listing. */
-router.post('/', RegisterRoute);
+router.get('/', RegisterController);
 
 module.exports = router;
