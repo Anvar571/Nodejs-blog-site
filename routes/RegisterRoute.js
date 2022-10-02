@@ -1,11 +1,10 @@
 const express = require('express');
-const { RegisterController } = require('../controllers/RegisterController');
+const { RegisterGetController, RegsiterPostController } = require('../controllers/RegisterController');
 const router = express.Router();
 
-// import router
-
-
-/* POST users listing. */
-router.get('/', RegisterController);
+/* GET users listing. */
+router.get('/', RegisterGetController);
+// POST users listing
+router.post("/", RegsiterPostController)
 
 module.exports = router;
