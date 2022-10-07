@@ -1,12 +1,15 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose")
+const url = process.env.MONGODB_URL
 
-module.exports = () => {
-    mongoose.connect("mongodb://localhost:27017/blog")
-    mongoose.connection.on("open", () => {
-        console.log("Mongodb connection");
+function connectMongo() {
+    mongoose.connect(url)
+    mongoose.connection.on('open', () => {
+        console.log("database connection");
     })
 
-    mongoose.connection.on('error', (err) => {
-        console.log("Mongodb not connection", err);
+    mongoose.connection.on("error", (err) => {
+        console.log("database not connection", err);
     })
 }
+
+module.exports = connectMongo
