@@ -1,0 +1,16 @@
+extends layout/home
+
+block style_content
+    link(rel="stylesheet", href="")
+
+block register
+    form(action="/users/register" method="POST")
+        div(class="register-page")
+            label(for="username") UserName
+            input(type="text" id="username" name="username")  
+        div(class="")
+            label(for="email") Email
+            input(type="email" id="email" name="email")  
+        div(class="")
+            label(for="password") Password
+            input(type="password" id="password" name="password")  

@@ -1,7 +1,7 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt')
 
 module.exports.createCrypt = function createCrypt(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(10))
+    return bcrypt.hash(password, bcrypt.genSaltSync(10))
 }
 
 module.exports.compareCrypt = function compareCrypt(password, crypt) {

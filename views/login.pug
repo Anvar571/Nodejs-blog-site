@@ -1,0 +1,11 @@
+extends layout/home
+
+block login
+    form(action="/users/login" method="POST")
+        div(class="")
+            label(for="email") Email
+            input(type="email" id="email" name="email")  
+        div(class="")
+            label(for="password") Password
+            input(type="password" id="password" name="password")  
+        
