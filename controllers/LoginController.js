@@ -27,10 +27,10 @@ module.exports = class LoginController {
                     }
                 }
             ])
-            
-            const user = await compareCrypt(password, getByEmailPassword)
+
+            const user = await compareCrypt(password, getByEmailPassword[0].password)
             if (user)
-                res.redirect("/")
+                res.redirect("/", {registered: "user registered successfully"})
             else {
                 res.render("login", {error_message: "xatolik sodir bo'ldi qaytadan urinib ko'ring"})
             }

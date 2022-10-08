@@ -15,10 +15,17 @@ html(lang="en")
                 li 
                     a(href="/" class="site-nav-link") Home
                 li 
+                    a(href="/blog" class="site-nav-link") Blog
+                li 
+                    a(href="/blog/new" class="site-nav-link") BlogWrite
+                li 
                     a(href="/users/register" class="site-nav-link") Register
                 li 
                     a(href="/users/login" class="site-nav-link") Login
         div(class="site-wrapper")
+            block blogs
             block homePage
             block register
             block login
+            block blog
+        block scripts

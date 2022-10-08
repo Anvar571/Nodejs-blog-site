@@ -10,8 +10,10 @@ block login
         form(action="/users/login" method="POST") 
             div(class="")
                 label(for="email") Email
-                input(class="inputs" type="email" id="email" name="email")  
+                input(class="inputs" type="email" placeholder="Enter email" id="email" name="email")  
             div(class="")
                 label(for="password") Password
-                input(class="inputs" type="password" id="password" name="password") 
+                input(class="inputs" type="password" id="password" placeholder="Enter password" name="password") 
             button(class="submit-btn" type="submit") Login
+
+block scripts
