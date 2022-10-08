@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 2px 1px 10px 2px rgba(0,0,0,0.2);
-    padding: 0 100px;
+    padding: 0 130px;
 }
 .site-nav_ul {
     display: flex;
@@ -32,4 +32,10 @@
     display: block;
     color: rgb(0, 110, 255);
     padding: 20px;
+}
+.error-message {
+    margin: 10px 0;
+    padding: 5px 0;
+    background-color: rgb(174, 105, 105);
+    border-radius: 4px;
 }

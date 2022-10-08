@@ -3,6 +3,7 @@ const { LoginGetController, LoginPostController } = require("../controllers/Logi
 const router = require("express").Router();
 
 router.get("/login", LoginGetController)
+
 router.post("/login", LoginPostController)
 
 module.exports = router
