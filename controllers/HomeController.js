@@ -1,5 +1,11 @@
+
 module.exports = class HomeController {
     static async HomeGetController(req, res) {
-        res.render("homePage")
+        try {
+            res.render("homePage")
+        }
+        catch (error) {
+            res.render("homePage", {error_message: error+""})
+        }
     }
 }

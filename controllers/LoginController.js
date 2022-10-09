@@ -1,5 +1,6 @@
 const UserModel = require("../models/UserModel");
 const { compareCrypt } = require("../modules/bcrypt");
+const { createToken } = require("../modules/jwt");
 const Validation = require("../modules/validation")
 
 module.exports = class LoginController {
@@ -7,7 +8,7 @@ module.exports = class LoginController {
         try {
             res.render("login", {title: "Login page"})
         } catch (error) {
-            
+            res.render("login", {error_message: error})
         }
     }
 
@@ -29,13 +30,16 @@ module.exports = class LoginController {
             ])
 
             const user = await compareCrypt(password, getByEmailPassword[0].password)
-            if (user)
-                res.redirect("/", {registered: "user registered successfully"})
-            else {
-                res.render("login", {error_message: "xatolik sodir bo'ldi qaytadan urinib ko'ring"})
-            }
+
+            const token = await createToken(email)
+            if (!user)
+                return res.render("login", {error_message: "Find not user"})
+            
+            res.cookie('token', token).redirect("/")
+
+            
         } catch (error) {
-            res.render("login", {error_message: error})
+            res.render("login", {error_message: "roor"})
         }
     }
 }

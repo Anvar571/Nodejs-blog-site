@@ -1,5 +1,6 @@
 const UserModel = require("../models/UserModel")
 const { createCrypt } = require("../modules/bcrypt")
+const { createToken } = require("../modules/jwt")
 const Validation = require("../modules/validation")
 
 module.exports = class UserController {
@@ -25,6 +26,7 @@ module.exports = class UserController {
                 email: email,
                 password: hashPassword
             })
+            
             user.save()
             res.redirect("/users/login")
         } catch (error) {
