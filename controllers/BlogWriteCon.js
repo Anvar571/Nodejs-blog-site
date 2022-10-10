@@ -3,7 +3,7 @@ const Validation = require("../modules/validation")
 
 module.exports = class BlogWriteCon{
     static async BlogGetCon(req, res) {
-        res.render("blogWrite")
+        res.render("blogWrite", {username: req.user?.username})
     }
 
     static async BlogPostCon(req, res) {
@@ -15,8 +15,13 @@ module.exports = class BlogWriteCon{
                 blogdescription,
             })
             newPost.save()
-            res.render("blog", {blog_title: blogtitle, blog_link: blogphoto, blog_description: blogdescription})
-            // res.render("blogWrite", {success_message: "Seccessfully post created"})
+            req.blogs = {
+                blogtitle,
+                blogphoto,
+                blogdescription
+            }
+            console.log(req.blogs);
+            res.render("blog", {username: req.user?.username, blogAll: req.blogs})
         } catch (error) {
             res.render("blogWrite", {error_message: error})
         }

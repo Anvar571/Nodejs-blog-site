@@ -4,7 +4,7 @@ const Validation = require("../modules/validation")
 module.exports = class BlogController {
     static async BlogGetController(req, res) {
         try {
-            res.render("blog", {title: "blog | page"})
+            res.render("blog", {username: req.user?.username})
         } catch (error) {
         }
     }

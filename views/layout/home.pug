@@ -12,18 +12,23 @@ html(lang="en")
             div 
                 h2 Logo
             ul(class="site-nav_ul")
-                li 
-                    a(href="/" class="site-nav-link") Home
-                li 
-                    a(href="/blog" class="site-nav-link") Blog
-                li 
-                    a(href="/blog/new" class="site-nav-link") BlogWrite
-                li 
-                    a(href="/users/register" class="site-nav-link") Register
-                li 
-                    a(href="/users/login" class="site-nav-link") Login
-                li 
-                    a(href="/users/profile" class="site-nav-link") Profile
+                    if (username)
+                        li 
+                            a(href="/" class="site-nav-link") Home
+                        li 
+                            a(href="/blog" class="site-nav-link") Blog
+                        li 
+                            a(href="/blog/new" class="site-nav-link") BlogWrite
+                        li 
+                            a(href="/users/profile" class="site-nav-link") Profile
+                    else
+                        li 
+                            a(href="/" class="site-nav-link") Home
+                        li 
+                            a(href="/users/register" class="site-nav-link") Register
+                        li 
+                            a(href="/users/login" class="site-nav-link") Login
+                    
         div(class="site-wrapper")
             block blogs
             block homePage

@@ -32,14 +32,14 @@ module.exports = class LoginController {
             const user = await compareCrypt(password, getByEmailPassword[0].password)
 
             const token = await createToken(email)
+            
             if (!user)
                 return res.render("login", {error_message: "Find not user"})
             
-            res.cookie('token', token).redirect("/")
+            res.cookie('token', token).redirect("/users/profile")
 
-            
         } catch (error) {
-            res.render("login", {error_message: "roor"})
+            res.render("login", {error_message: error+""})
         }
     }
 }

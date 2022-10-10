@@ -6,7 +6,7 @@ const Validation = require("../modules/validation")
 module.exports = class UserController {
     static async UserGetController(req, res) {
         try {
-            res.render("register", {title: "Register page"})
+            res.render("register", {username: req?.user?.username, title: "Register page"})
         } catch (error) {
             res.status(404).render("register", {message: "Register page"})
         }
