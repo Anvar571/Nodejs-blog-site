@@ -1,9 +1,10 @@
-const { BlogGetController, BlogPostController } = require("../controllers/BlogController");
+const { BlogGetController } = require("../controllers/BlogController");
+const { checkMiddleware } = require("../middlewares/Middleware");
 
 const router = require("express").Router();
 
-router.get("/", BlogGetController)
+router.get("/", checkMiddleware, BlogGetController);
 
-router.post("/", )
+// router.put("/",)
 
 module.exports = router

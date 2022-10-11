@@ -8,22 +8,23 @@ module.exports = class BlogWriteCon{
 
     static async BlogPostCon(req, res) {
         try {
+
             const {blogtitle, blogphoto, blogdescription} = await Validation.BlogValidation(req.body)
             const newPost = new BlogModel({
-                blogtitle,
-                blogphoto,
-                blogdescription,
+                blog_id: new Date().getTime(),
+                blogtitle: blogtitle,
+                blogphoto: blogphoto,
+                blogdescription: blogdescription,
             })
-            newPost.save()
-            req.blogs = {
-                blogtitle,
-                blogphoto,
-                blogdescription
-            }
-            console.log(req.blogs);
-            res.render("blog", {username: req.user?.username, blogAll: req.blogs})
+            req.newPost = newPost
+            newPost.save((err, data)=>{
+                if (err)
+                    return res.render("blogWriter", {username: req.user?.username, error})
+                res.render("blog", {username: req.user?.username})
+                
+            })
         } catch (error) {
-            res.render("blogWrite", {error_message: error})
+            res.render("blogWrite", {username: req.user?.username, error_message: error})
         }
     }
 }

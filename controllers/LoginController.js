@@ -37,7 +37,6 @@ module.exports = class LoginController {
                 return res.render("login", {error_message: "Find not user"})
             
             res.cookie('token', token).redirect("/users/profile")
-
         } catch (error) {
             res.render("login", {error_message: error+""})
         }

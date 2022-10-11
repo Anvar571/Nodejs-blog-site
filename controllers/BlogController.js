@@ -4,16 +4,19 @@ const Validation = require("../modules/validation")
 module.exports = class BlogController {
     static async BlogGetController(req, res) {
         try {
-            res.render("blog", {username: req.user?.username})
+            const newPost = await BlogModel.find({})
+            // console.log(newPost);
+            res.render("blog", {username: req.user?.username, posts: newPost})
         } catch (error) {
         }
     }
 
-    static async BlogPostController(req, res) {
+    static async BlogUpdateController(req, res) {
         try {
-            
+            // update-btn id bilan bazadagi id solishtirib kiyin shu idigi malumotlarni blogWritega jo'natish
+             
         } catch (error) {
-            
+            console.log(error+"");
         }
     }
 }

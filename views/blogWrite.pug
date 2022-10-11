@@ -6,10 +6,10 @@ block style_content
 block blog
     div(class="blog-wrapper")
         if error_message
-                h2(class="error-message") #{error_message} 
+            h2(class="error-message") #{error_message} 
         if success_message
                 h2(class="success_message") #{success_message}
-        form(action="/blog", method="POST")
+        form(action="/blog/new", method="POST")
             div()
                 label(for="blogtitle") Blog Title  
                 input(class="blog-input" type="text" id="blogtitle" placeholder="Enter blog title" name="blogtitle") 
