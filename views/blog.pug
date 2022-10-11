@@ -3,14 +3,16 @@ extends layout/home
 block style_content
     link(rel="stylesheet", href="/stylesheets/blog.css")
 
-block blogs 
-    for i in posts
+block blogs
+    each i in posts ? posts : []
         div(class="blog-posts")
-            img(class="blog-img" src="/images/home.jpg", alt="blog image" width="600" height="400")
+            img(class="blog-img" src=`${i.blogphoto}`, alt="blog image" width="600" height="400")
             h3(class="blog-title") #{i.blogtitle} 
-            p #{i.blogdescription}
+            h4 #{i.blogDate}
+            h4 #{i.blogTime}
+            p #{i.blogdescription} 
             form(action=`/delete/${i._id}` class="form-posts" method="post")
                 button(type="submit" class="post-delete-btn") Delete 
-            form(action=`/update/${i_id}` class="form-posts" method="post")
-                button(class="post-update-btn" href="/blog/new") Update 
+            form(action=`/update/${i._id}` class="form-posts" method="get")
+                button(class="post-update-btn" type="submit") Update 
     

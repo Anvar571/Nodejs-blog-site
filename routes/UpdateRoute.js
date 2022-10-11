@@ -1,8 +1,10 @@
+const { UpdateGetController, UpdatePostController } = require("../controllers/UpdateControllet");
+const BlogModel = require("../models/BlogModel");
+
 const router = require("express").Router();
 
-router.post("/:id", async (req, res) => {
-    const postId = await req.params.id;
-    console.log(postId);
-})
+router.get("/:id", UpdateGetController)
+
+router.post("/:id", UpdatePostController)
 
 module.exports = router
