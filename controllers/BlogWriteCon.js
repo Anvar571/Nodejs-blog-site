@@ -9,14 +9,16 @@ module.exports = class BlogWriteCon{
     static async BlogPostCon(req, res) {
         try {
 
-            const {blogtitle, blogphoto, blogdescription, blogDate, blogTime} = await Validation.BlogValidation(req.body)
+            const {blogtitle, blogphoto, blogdescription} = await Validation.BlogValidation(req.body)
             const newPost = new BlogModel({
                 blog_id: new Date().getTime(),
                 blogtitle: blogtitle,
                 blogphoto: blogphoto,
                 blogdescription: blogdescription,
-                blogDate: blogDate,
-                blogTime: blogTime
+                blogDate: new Date().getDate(),
+                blogTime: new Date().getMinutes(),
+                blogHour: new Date().getHours(),
+                bloguser: req.user.username,
             })
             
             newPost.save((err, data)=>{

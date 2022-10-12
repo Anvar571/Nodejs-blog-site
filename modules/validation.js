@@ -20,7 +20,7 @@ module.exports = class Validation {
         return Joi.object({
             blogtitle: Joi.string().required(),
             blogdescription: Joi.string().required(),
-            blogphoto: Joi.string().required()
+            blogphoto: Joi.string().required(),
         }).validateAsync(data)
     }
 }

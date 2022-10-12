@@ -8,6 +8,8 @@ const blogSchema = new Schema({
     blogdescription: String,
     blogDate: Number,
     blogTime: Number,
+    blogHour: Number,
+    bloguser: String,
 })
 
 module.exports = mongoose.model("blogs", blogSchema)

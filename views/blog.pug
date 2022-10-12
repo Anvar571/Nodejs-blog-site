@@ -8,8 +8,8 @@ block blogs
         div(class="blog-posts")
             img(class="blog-img" src=`${i.blogphoto}`, alt="blog image" width="600" height="400")
             h3(class="blog-title") #{i.blogtitle} 
-            h4 #{i.blogDate}
-            h4 #{i.blogTime}
+            h5(style="background: yellow; padding: 5px 0;margin: 5px 0; border-radius: 3px; display: inline-block;") #{i.blogDate} kuni soat #{i.blogHour} : #{i.blogTime} da yozilgan
+            h5(style="background: blue; color: #fff; width: 100px;margin: 5px 0; padding: 5px 0; border-radius: 3px; display: block;") #{i.bloguser}
             p #{i.blogdescription} 
             form(action=`/delete/${i._id}` class="form-posts" method="post")
                 button(type="submit" class="post-delete-btn") Delete 
